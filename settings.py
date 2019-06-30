@@ -13,36 +13,36 @@ ROOT_DIR = os.path.dirname(__file__)
 debug = True
 xsrf_cookies = False
 expire_seconds = 365 * 24 * 60 * 60
-cookie_secret = '61oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2X6TP1o/Vo='
+cookie_secret = os.getenv('COOKIE_SECRET','61oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2X6TP1o/Vo=')
 
 DEFAULT_DB_DBHOST = os.getenv('DEFAULT_DB_DBHOST', '172.16.0.223')
-DEFAULT_DB_DBPORT = os.getenv('DEFAULT_DB_DBPORT', '3306')
+DEFAULT_DB_DBPORT = os.getenv('DEFAULT_DB_DBPORT', 3306)
 DEFAULT_DB_DBUSER = os.getenv('DEFAULT_DB_DBUSER', 'root')
 DEFAULT_DB_DBPWD = os.getenv('DEFAULT_DB_DBPWD', 'ljXrcyn7chaBU4F')
-DEFAULT_DB_DBNAME = os.getenv('DEFAULT_DB_DBNAME', 'do_task')
+DEFAULT_DB_DBNAME = os.getenv('TASK_DB_DBNAME', 'do_task')
 
 READONLY_DB_DBHOST = os.getenv('READONLY_DB_DBHOST', '172.16.0.223')
-READONLY_DB_DBPORT = os.getenv('READONLY_DB_DBPORT', '3306')
+READONLY_DB_DBPORT = os.getenv('READONLY_DB_DBPORT', 3306)
 READONLY_DB_DBUSER = os.getenv('READONLY_DB_DBUSER', 'root')
 READONLY_DB_DBPWD = os.getenv('READONLY_DB_DBPWD', 'ljXrcyn7chaBU4F')
-READONLY_DB_DBNAME = os.getenv('READONLY_DB_DBNAME', 'do_task')
+READONLY_DB_DBNAME = os.getenv('TASK_DB_DBNAME', 'do_task')
 
 DEFAULT_REDIS_HOST = os.getenv('DEFAULT_REDIS_HOST', '172.16.0.223')
-DEFAULT_REDIS_PORT = os.getenv('DEFAULT_REDIS_PORT', '6379')
+DEFAULT_REDIS_PORT = os.getenv('DEFAULT_REDIS_PORT', 6379)
 DEFAULT_REDIS_DB = 8
 DEFAULT_REDIS_AUTH = True
 DEFAULT_REDIS_CHARSET = 'utf-8'
 DEFAULT_REDIS_PASSWORD = os.getenv('DEFAULT_REDIS_PASSWORD', '123456')
 
 DEFAULT_MQ_ADDR = os.getenv('DEFAULT_MQ_ADDR', '172.16.0.223')
-DEFAULT_MQ_PORT = 5672
+DEFAULT_MQ_PORT = os.getenv('DEFAULT_MQ_PORT', 5672)
 DEFAULT_MQ_VHOST = '/'
 DEFAULT_MQ_USER = os.getenv('DEFAULT_MQ_USER', 'yz')
 DEFAULT_MQ_PWD = os.getenv('DEFAULT_MQ_PWD', 'vuz84B2IkbEtXWF')
 
 ### 阿里大鱼 注册
-sign_name = '自动化',
-template_code = 'SMS_136397944',
+sign_name = os.getenv('DY_SIGN_NAME', '自动化'),
+template_code = os.getenv('DY_TPL_CODE', 'SMS_136397944'),
 try:
     from local_settings import *
 except:
