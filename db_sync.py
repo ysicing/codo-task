@@ -4,11 +4,13 @@
 Contact : 191715030@qq.com
 Author  : shenshuo
 Date    : 2018/12/24
-Desc    : 
+Desc    : 生产表结构
 """
 
 from models.scheduler import Base as Abase
-from models.task_other import Base
+from models.task_other import Base as TBase
+from models.git_model import Base as GBase
+from models.publish_model import Base as PBase
 from websdk.consts import const
 from settings import settings as app_settings
 # ORM创建表结构
@@ -25,14 +27,18 @@ engine = create_engine('mysql+pymysql://%s:%s@%s:%s/%s?charset=utf8' % (
 
 
 def create():
-    Base.metadata.create_all(engine)
     Abase.metadata.create_all(engine)
+    TBase.metadata.create_all(engine)
+    GBase.metadata.create_all(engine)
+    PBase.metadata.create_all(engine)
     print('[Success] Table structure created!')
 
 
 def drop():
-    Base.metadata.drop_all(engine)
     Abase.metadata.drop_all(engine)
+    TBase.metadata.drop_all(engine)
+    GBase.metadata.drop_all(engine)
+    PBase.metadata.drop_all(engine)
 
 
 if __name__ == '__main__':
